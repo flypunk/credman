@@ -5,7 +5,8 @@ managing the credentials quickly becomes a burden.
 This script is an alternative to manual copying of config files or environment
 variables manipulation.
 
-It currently supports aws cli, boto and s3cmd.  
+It currently supports [aws cli](https://github.com/aws/aws-cli),
+[boto](https://github.com/boto/boto) and [s3cmd](http://s3tools.org/s3cmd).  
 Suggestions for more utilities or libraries are welcome!  
 
 ## Setup:
