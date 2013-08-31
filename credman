@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Switch all AWS credentials to the specified profile
+# Currently supports s3cmd, boto and awscli
+
+usage="If the first argument is 'show', list the existing AWS profiles.
+If the first argument is 'current', show the currently active profile.
+If the first argument is 'switch', switch AWS services to the specified profile.
+If a different argument or no argument is specified, show this message."
+
+profiles_dir=~/aws_profiles
+
+function show_creds {
+    ls $profiles_dir
+} 
+
+function show_current {
+    cat $profiles_dir/.current
+} 
+
+function switch_creds {
+    if [ "$1" == "" ]; then
+        echo "Please specify the profile to switch to!"
+        exit 1
+    fi
+        
+    if ! [ -d  "$profiles_dir/$1" ]; then
+        echo "There is no profile $1!"
+        exit 1
+    fi
+    ln -fs $profiles_dir/$1/.s3cfg ~/.s3cfg
+    ln -fs $profiles_dir/$1/.boto ~/.boto
+    ln -fs $profiles_dir/$1/.awscli ~/.aws/config
+    echo "$1" > $profiles_dir/.current
+}
+
+if [ "$1" == "show" ]; then
+    show_creds
+elif [ "$1" == "current" ]; then
+    show_current
+elif [ "$1" == "switch" ]; then
+    switch_creds $2
+else
+    echo "$usage"
+fi
