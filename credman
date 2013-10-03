@@ -4,7 +4,7 @@
 # Currently supports s3cmd, boto and awscli
 
 usage="If the first argument is 'ls', list the existing AWS profiles.
-If the first argument is 'current', show the currently active profile.
+If the first argument is 'current' or '.', show the currently active profile.
 If the first argument is 'switch', switch AWS services to the specified profile.
 If a different argument or no argument is specified, show this message."
 
@@ -36,7 +36,7 @@ function switch_creds {
 
 if [ "$1" == "ls" ]; then
     show_creds
-elif [ "$1" == "current" ]; then
+elif [ "$1" == "current" ] || [ "$1" == "." ]; then
     show_current
 elif [ "$1" == "switch" ]; then
     switch_creds $2
