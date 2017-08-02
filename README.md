@@ -10,7 +10,7 @@ It currently supports [aws cli](https://github.com/aws/aws-cli),
 Suggestions for more utilities or libraries are welcome!  
 
 ## Setup:
-* Copy the script to some place in your $PATH and make it executable
+* Copy the [script](https://raw.githubusercontent.com/flypunk/credman/master/credman) to some place in your $PATH and make it executable
 * Create a directory that will hold your profiles, its default name is ~/aws_profiles.  
 * Create under it subdirectories, each named after your desired profile name.  
 * Copy or create config files for each utility into its profile directory:
