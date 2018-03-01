@@ -31,6 +31,7 @@ function switch_creds {
     ln -fs $profiles_dir/$1/.s3cfg ~/.s3cfg
     ln -fs $profiles_dir/$1/.boto ~/.boto
     ln -fs $profiles_dir/$1/.awscli ~/.aws/config
+    ln -fs $profiles_dir/$1/.awscli ~/.aws/credentials
     echo "$1" > $profiles_dir/.current
 }
 
